@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подготовка к тестам ПИ 24-21</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="mainMenu" class="main-menu">
+            <div class="menu-buttons">
+                <button onclick="showSection('library')">Библиотека вопросов</button>
+                <button onclick="showSection('quiz')">Викторина</button>
+                <button onclick="showSection('cheatsheet')" class="cheatsheet-btn">Режим шпаргалки</button>
+            </div>
+        </div>
+
+        <div id="quizSection" class="section" style="display: none;">
+            <h2>Викторина</h2>
+            <button class="back-btn" onclick="showSection('main')">← Назад</button>
+            
+            <div class="quiz-controls">
+                <select id="quizSubjectSelect" onchange="startQuiz()">
+                    <option value="all">Все предметы</option>
+                    <option value="philosophy">Философия</option>
+                    <option value="kulturology">Культурология</option>
+                    <option value="psychology">Психология</option>
+                </select>
+                <button onclick="finishQuiz()" class="finish-btn">Завершить викторину</button>
+            </div>
+
+            <div id="quizContent" class="quiz-content">
+                <p id="questionText" class="question-text"></p>
+                <div id="optionsContainer" class="options-container"></div>
+                <button id="nextQuestion" class="next-btn" onclick="nextQuestion()">Следующий вопрос</button>
+            </div>
+
+            <div id="quizResults" class="quiz-results" style="display: none;"></div>
+        </div>
+
+        <div id="librarySection" class="section" style="display: none;">
+            <h2>Библиотека вопросов</h2>
+            <button class="back-btn" onclick="showSection('main')">← Назад</button>
+            <div class="filter-container">
+                <div class="search-section">
+                    <input type="text" id="searchInput" placeholder="Поиск по вопросам...">
+                    <select id="subjectFilter">
+                        <option value="all">Все предметы</option>
+                        <option value="philosophy">Философия</option>
+                        <option value="kulturology">Культурология</option>
+                        <option value="psychology">Психология</option>
+                    </select>
+                </div>
+                
+                <button class="advanced-filters-toggle" onclick="toggleAdvancedFilters()">
+                    Расширенные фильтры ▼
+                </button>
+            
+                <div class="advanced-filters" id="advancedFilters">
+                    <div class="filter-group">
+                        <h4>Сортировка по длине</h4>
+                        <label>
+                            <input type="radio" name="lengthFilter" value="none" checked> 
+                            Без сортировки
+                        </label>
+                        <label>
+                            <input type="radio" name="lengthFilter" value="options_asc">
+                            Варианты (по возрастанию)
+                        </label>
+                        <label>
+                            <input type="radio" name="lengthFilter" value="options_desc">
+                            Варианты (по убыванию)
+                        </label>
+                    </div>
+                
+                    <div class="filter-group">
+                        <h4>Дополнительные фильтры</h4>
+                        <label>
+                            <input type="checkbox" id="romanFilter">
+                            Римские цифры
+                        </label>
+                        <label>
+                            <input type="checkbox" id="numbersFilter">
+                            Числа в вопросе
+                        </label>
+                        <label>
+                            <input type="checkbox" id="multipleAnswersFilter">
+                            Повторяющиеся слова
+                        </label>
+                        <input 
+                            type="text" 
+                            id="repeatedWordsInput" 
+                            placeholder="Искать слово..." 
+                            disabled
+                            style="margin-top: 5px; width: 100%;"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <div id="cheatsheetSection" class="section" style="display: none;">
+            <div class="cheatsheet-header">
+                <button class="back-btn" onclick="showSection('main')">← Назад</button>
+                <select id="cheatsheetSubject" onchange="updateCheatsheet()">
+                    <option value="all">Все предметы</option>
+                    <option value="philosophy">Философия</option>
+                    <option value="kulturology">Культурология</option>
+                    <option value="psychology">Психология</option>
+                </select>
+            </div>
+            <div class="cheatsheet-controls">
+                <input type="text" id="cheatsheetSearch" placeholder="Поиск по шпаргалке..." onkeyup="updateCheatsheet()">
+                <button onclick="copyCheatsheet()" class="copy-btn">Копировать всё</button>
+                <div class="view-controls">
+                    <label>
+                        <input type="checkbox" id="compactView" onchange="updateCheatsheet()">
+                        Компактный вид
+                    </label>
+                </div>
+            </div>
+            <div id="cheatsheetContent" class="cheatsheet-content"></div>
+        </div>
+
+    <script src="questions/Philosophy.js"></script>
+    <script src="questions/Kulturology.js"></script>
+    <script src="questions/Psyhology.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
