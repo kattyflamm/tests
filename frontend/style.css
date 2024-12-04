@@ -1,0 +1,501 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.main-menu {
+    text-align: center;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.menu-buttons button {
+    padding: 15px;
+    font-size: 20px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.back-btn {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.option-btn {
+    color: #333;
+    background-color: #f8f9fa;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.option-btn:hover {
+    background-color: #e9ecef;
+}
+
+.option-btn.correct {
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.option-btn.incorrect {
+    background: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.result-message {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.result-message.correct {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.search-section {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+input, select, button {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 18px;
+    flex: 1;
+}
+
+input {
+    flex: 1;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.question-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.question-text {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f0f2f5;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.filter-container {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.advanced-filters {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.advanced-filters label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.philosophy-only {
+    color: #0056b3;
+}
+
+.answer-info {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.roman-badge {
+    background: #e3f2fd;
+    color: #0056b3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.option {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    background: #f8f9fa;
+}
+
+.option.correct {
+    background: #d4edda;
+    color: #155724;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    padding: 15px;
+    font-size: 12px;
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.quiz-controls select {
+    width: 150px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.finish-btn {
+    background-color: #dc3545;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.finish-btn:hover {
+    background-color: #c82333;
+}
+
+.results-list {
+    margin-top: 15px;
+}
+
+.results-list .question-text {
+    font-size: 16px;
+}
+
+.result-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.result-item.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.result-item.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.restart-btn {
+    margin-top: 15px;
+    background-color: #28a745;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.restart-btn:hover {
+    background-color: #218838;
+}
+
+/* ... (предыдущие стили до advanced-filters остаются без изменений) ... */
+
+.advanced-filters-toggle {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #0056b3;
+    font-size: 14px;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+.advanced-filters {
+    display: none;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.advanced-filters.show {
+    display: block;
+}
+
+.filter-group {
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.filter-group h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.filter-group label {
+    display: block;
+    margin: 5px 0;
+    color: #555;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.filter-group label:hover {
+    color: #007bff;
+}
+
+/* Стили для режима шпаргалки */
+.cheatsheet-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.cheatsheet-controls select {
+    min-width: 150px;
+}
+
+.copy-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background-color: #218838;
+}
+
+.view-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.cheatsheet-content {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.cheatsheet-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cheatsheet-item:last-child {
+    border-bottom: none;
+}
+
+.cheatsheet-question {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.cheatsheet-answer {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Компактный вид для шпаргалки */
+.compact-view .cheatsheet-item {
+    padding: 4px;
+    font-size: 12px;
+}
+
+.compact-view .cheatsheet-question {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+        margin: 0 auto;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .cheatsheet-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cheatsheet-controls select,
+    .cheatsheet-controls button {
+        width: 100%;
+    }
+
+    .view-controls {
+        justify-content: center;
+    }
+
+    .menu-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-buttons button {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .back-btn {
+        font-size: 16px;
+    }
+
+    .options-container {
+        gap: 15px;
+    }
+
+    .option-btn {
+        padding: 15px;
+    }
+
+    input, select {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .question-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cheatsheet-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cheatsheet-question {
+        margin-right: 0;
+    }
+}
+.cheatsheet-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cheatsheet-header select {
+    flex: 1;
+}
+
+.cheatsheet-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cheatsheet-controls input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .cheatsheet-header {
+        flex-wrap: nowrap;
+    }
+    
+    .cheatsheet-header .back-btn {
+        margin-bottom: 0;
+    }
+
+    .cheatsheet-controls {
+        gap: 8px;
+    }
+}
